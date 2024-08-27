@@ -64,6 +64,8 @@ func NewExiftool(opts ...func(*Exiftool) error) (*Exiftool, error) {
 		}
 	}
 
+	e.extraInitArgs = append(e.extraInitArgs, "-charset", "filename=utf8")
+
 	args := append([]string(nil), initArgs...)
 	if len(e.extraInitArgs) > 0 {
 		args = append(args, "-common_args")
